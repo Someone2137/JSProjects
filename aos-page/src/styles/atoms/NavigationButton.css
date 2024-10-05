@@ -1,0 +1,11 @@
+@import "../Consts.css";
+
+.NavigationButton{
+    background-color: var(--colour-black);
+    font-size: var(--font-size-button);
+    color: var(--colour-white);
+    border: solid var(--colour-white);
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 1%;
+}

@@ -1,0 +1,20 @@
+.VideoAndDescription {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4%;
+}
+
+.video {
+    margin-top: 2%;
+    width: 50%;
+    height: 50%;
+}
+
+.textContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 2%;
+    font-size: 16px;
+    text-align: justify;
+}

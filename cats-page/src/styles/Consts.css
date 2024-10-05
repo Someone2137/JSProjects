@@ -1,0 +1,7 @@
+:root{
+    --background: linear-gradient(to bottom, #FFFFFF, #90EBEE) ;
+    --font-style: Abhaya Libre;
+    --border: solid black;
+    --border-width: 1px;
+    --text-align: center;
+}

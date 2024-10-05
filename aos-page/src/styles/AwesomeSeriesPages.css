@@ -1,0 +1,8 @@
+@import "Consts.css";
+
+.AwesomeSeriesPages{
+    font-family: var(--font-style);
+    text-align: center;
+    width: 80%;
+    margin: auto;
+}
