@@ -10,8 +10,18 @@ import NavigationButton from "../atoms/NavigationButton";
 
 const AgentsOfShieldPage = () => {
     const title = "Agents of Shield";
-    const h1Value = "Agents of S.H.I.E.L.D";
-    const h3Value = "2013 - 2020";
+    const pageTitle = "Agents of S.H.I.E.L.D";
+    const screeningYears = "2013 - 2020";
+    const changePageButtonText = "Zmień stronę";
+    const ratingValue = "7,4";
+    const votesValue = "28 113";
+    const description = "Akcja serialu 'Agenci T.A.R.C.Z.Y.' rozpoczyna się tuż po wydarzeniach przedstawionych w filmie Jossa\n" +
+        "                    Whedona 'Avengers'. Phil Coulson (Clark Gregg) - prawa ręka dyrektora organizacji T.A.R.C.Z.A.,\n" +
+        "                    wraca do służby. Musi stworzyć zespół wyselekcjonowanych, oddanych agentów, których zadaniem będzie\n" +
+        "                    wyjaśnianie dziwnych, nadzwyczajnych zjawisk i ochrona ludzkości przed nowymi zagrożeniami.\n" +
+        "                    W drużynie Coulsona służą superszpieg Grant Ward (Brett Dalton), mistrzyni sztuk walki Melinda May\n" +
+        "                    (Ming-Na Wen) oraz dwóch genialnych młodych naukowców - Jemma Simmons (Elizabeth Henstridge) i Leo\n" +
+        "                    Fitz (Iain De Caestecker). Do zespołu dołącza również hakerka Sky (Chloe Bennet).";
     const navigate = useNavigate();
     const changePage = () => {
         navigate("/mindhunter");
@@ -31,17 +41,11 @@ const AgentsOfShieldPage = () => {
             <Helmet>
                 <title>{title}</title>
             </Helmet>
-            <NavigationButton value="Zmień stronę" onClick={changePage}/>
-            <h1> {h1Value} </h1>
-            <h3> {h3Value} </h3>
-            <Rating ratingValue="7,4" votesValue="28 113"/>
-            <VideoAndDescription video="/trailer.mp4" description="Akcja serialu 'Agenci T.A.R.C.Z.Y.' rozpoczyna się tuż po wydarzeniach przedstawionych w filmie Jossa
-                    Whedona 'Avengers'. Phil Coulson (Clark Gregg) - prawa ręka dyrektora organizacji T.A.R.C.Z.A.,
-                    wraca do służby. Musi stworzyć zespół wyselekcjonowanych, oddanych agentów, których zadaniem będzie
-                    wyjaśnianie dziwnych, nadzwyczajnych zjawisk i ochrona ludzkości przed nowymi zagrożeniami.
-                    W drużynie Coulsona służą superszpieg Grant Ward (Brett Dalton), mistrzyni sztuk walki Melinda May
-                    (Ming-Na Wen) oraz dwóch genialnych młodych naukowców - Jemma Simmons (Elizabeth Henstridge) i Leo
-                    Fitz (Iain De Caestecker). Do zespołu dołącza również hakerka Sky (Chloe Bennet)."/>
+            <NavigationButton value={changePageButtonText} onClick={changePage}/>
+            <h1> {pageTitle} </h1>
+            <h3> {screeningYears} </h3>
+            <Rating ratingValue={ratingValue} votesValue={votesValue}/>
+            <VideoAndDescription video="/trailer.mp4" description={description}/>
             <Cast castData={agentsCast}/>
         </div>
     );

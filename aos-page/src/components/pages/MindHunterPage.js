@@ -10,8 +10,11 @@ import NavigationButton from "../atoms/NavigationButton";
 
 const MindHunterPage = () => {
     const title = "Mindhunter";
-    const h1Value = "Mindhunter";
-    const h3Value = "2017 - 2019";
+    const pageTitle = "Mindhunter";
+    const screeningYears = "2017 - 2019";
+    const ratingValue = "8,0";
+    const votesValue = "106 000";
+    const description = "Agenci FBI Holden Ford i Bill Tench niestrudzenie próbują przeniknąć mroczne zakamarki umysłów przestępców, którzy dopuścili się przerażających zbrodni. Wspólnie z psycholog Wendy Carr wykorzystują przełomowe techniki analizy behawioralnej, aby dopaść seryjnych zabójców.";
     const navigate = useNavigate();
     const changePage = () => {
         navigate("/agentsOfShield");
@@ -29,10 +32,10 @@ const MindHunterPage = () => {
                 <title>{title}</title>
             </Helmet>
             <NavigationButton value="Zmień stronę" onClick={changePage}/>
-            <h1> {h1Value} </h1>
-            <h3> {h3Value} </h3>
-            <Rating ratingValue="8,0" votesValue="106 000"/>
-            <VideoAndDescription video="/trailer2.mp4" description="Agenci FBI Holden Ford i Bill Tench niestrudzenie próbują przeniknąć mroczne zakamarki umysłów przestępców, którzy dopuścili się przerażających zbrodni. Wspólnie z psycholog Wendy Carr wykorzystują przełomowe techniki analizy behawioralnej, aby dopaść seryjnych zabójców."/>
+            <h1> {pageTitle} </h1>
+            <h3> {screeningYears} </h3>
+            <Rating ratingValue={ratingValue} votesValue={votesValue}/>
+            <VideoAndDescription video="/trailer2.mp4" description={description}/>
             <Cast castData={mindhunterCast}/>
         </div>
     );

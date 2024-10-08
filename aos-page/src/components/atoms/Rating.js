@@ -5,6 +5,7 @@ import "../../styles/atoms/Rating.css";
 
 const Rating = ({ratingValue, votesValue}) => {
     const votes = "ocen";
+
     return (
         <div className="Rating">
             <div className="ratingContainer">

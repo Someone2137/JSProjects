@@ -1,0 +1,3 @@
+### PUT request to example server
+PUT localhost:8080/putCatById/3/1
+###

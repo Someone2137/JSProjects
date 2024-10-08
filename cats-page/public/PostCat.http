@@ -1,0 +1,11 @@
+POST http://localhost:8080/postCat
+Content-Type: application/json
+
+{
+  "id": 1,
+  "position": 1,
+  "name": "Oczko",
+  "obtainedPoints": 10
+}
+
+###
