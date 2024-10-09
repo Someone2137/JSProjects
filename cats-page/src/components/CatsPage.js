@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Helmet} from "react-helmet";
 import "../styles/CatsPage.css"
 
@@ -10,6 +10,8 @@ const CatsPage = () => {
     const secondColumnHeaderValue = "Imię kota";
     const thirdColumnHeaderValue = "Zdjęcie kota";
     const fourthColumnHeaderValue = "Liczba punktów";
+    const maxPoints = 10;
+    const minPoints = 0;
 
     const cats = [
         {position: 1, name: "Tysio", image: "/Tysio.jpg", points: 8},
@@ -21,11 +23,14 @@ const CatsPage = () => {
         {position: 7, name: 'Kola', image: '/Kola.jpg', points: 2}
     ];
 
-    const [catPoints, setCatPoints] = useState(cats);
+    const [catPoints, setCatPoints] = useState( () => {
+        const savedCatPoints = localStorage.getItem("catPoints");
+        return savedCatPoints ? JSON.parse(savedCatPoints) : cats
+    });
 
     const decrementCatPoints = (index) => {
         const updatedCats = [...catPoints];
-        if (updatedCats[index].points > 0) {
+        if (updatedCats[index].points > minPoints) {
             updatedCats[index].points -= 1;
         }
         setCatPoints(updatedCats);
@@ -33,11 +38,15 @@ const CatsPage = () => {
 
     const incrementCatPoints = (index) => {
         const updatedCats = [...catPoints];
-        if (updatedCats[index].points < 10){
+        if (updatedCats[index].points < maxPoints){
             updatedCats[index].points += 1;
         }
         setCatPoints(updatedCats);
     }
+
+    useEffect(() => {
+        localStorage.setItem("catPoints", JSON.stringify(catPoints));
+    }, [catPoints]);
 
     return (
         <div className="CatsPage">
@@ -62,7 +71,7 @@ const CatsPage = () => {
                         <td><img src={cat.image} alt={cat.name}/></td>
                         <td>
                             <button onClick={ () => incrementCatPoints(index)}>+</button>
-                            {cat.points}/10
+                            {cat.points}/{maxPoints}
                             <button onClick={ () => decrementCatPoints(index)}>-</button>
                         </td>
                     </tr>
